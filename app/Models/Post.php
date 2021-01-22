@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'post_content',
+        'thumbnail',
+    ];
+
+
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'category_post');
+    }
 }
