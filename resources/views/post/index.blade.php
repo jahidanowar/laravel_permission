@@ -15,6 +15,11 @@
                                 <div class="self-center">
                                     {{$post->title}}
                                 </div>
+                                <div class="self-center">
+                                    @foreach ($post->categories as $category)
+                                        <span class="p-2 rounded text-xs bg-gray-800 text-white">{{$category->title}}</span>
+                                    @endforeach
+                                </div>
                                 <div class="flex justify-items-end align-middle">
                                     <a href="{{route('post.edit', $post->id)}}" class="px-2 py-1 bg-indigo-600 text-white rounded">Edit</a>
                                     <form action="{{route('post.destroy', $post->id)}}" method="post">
